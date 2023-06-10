@@ -23,7 +23,7 @@ class GiftCard extends Model
 
     public function activate(): void
     {
-        if (! $this->start_date->isPast()) {
+        if ($this->start_date->isFuture()) {
             throw new LogicException("Cannot activate a GiftCard that has a 'start_date' in the future.");
         }
 
